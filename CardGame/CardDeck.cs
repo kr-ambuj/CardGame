@@ -34,23 +34,29 @@ namespace CardGame
         /// <summary>
         /// Shuffling the current deck.
         /// </summary>
-        public void ShuffleDeck()
+        public string ShuffleDeck()
         {
-            Random random = new Random();
-            int deckSize = cardDeckSet.Count;
-            string[] tempDeck = cardDeckSet.ToArray();
-            cardDeckSet.Clear();
-            while(true)
+            if (cardDeckSet.Count > 0)
             {
-                int pos = random.Next(tempDeck.Length);
-                string card = tempDeck[pos];
-                if (!cardDeckSet.Contains(card))
+                Random random = new Random();
+                int deckSize = cardDeckSet.Count;
+                string[] tempDeck = cardDeckSet.ToArray();
+                cardDeckSet.Clear();
+                while (true)
                 {
-                    cardDeckSet.Add(card);
-                    if (cardDeckSet.Count == deckSize)
-                        break;
+                    int pos = random.Next(tempDeck.Length);
+                    string card = tempDeck[pos];
+                    if (!cardDeckSet.Contains(card))
+                    {
+                        cardDeckSet.Add(card);
+                        if (cardDeckSet.Count == deckSize)
+                            break;
+                    }
                 }
+                return "Current Deck Shuffled.";
             }
+            else
+                return "Really!! shuffling a deck without cards.";
         }
 
         /// <summary>
@@ -59,9 +65,14 @@ namespace CardGame
         /// <returns></returns>
         public string GetTopCard()
         {
-            string value = cardDeckSet.First();
-            cardDeckSet.Remove(value);
-            return value;
+            if (cardDeckSet.Count > 0)
+            {
+                string value = cardDeckSet.First();
+                cardDeckSet.Remove(value);
+                return value;
+            }
+            else
+                return "Reached end of deck, start another game.";
         }
     }
 }

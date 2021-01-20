@@ -30,9 +30,8 @@ namespace CardGame
                     Console.WriteLine(cardDeck.GetTopCard());
                     Console.WriteLine();
                     break;
-                case "2":
-                    cardDeck.ShuffleDeck();
-                    Console.WriteLine("Current Deck Shuffled.");
+                case "2":                    
+                    Console.WriteLine(cardDeck.ShuffleDeck());
                     Console.WriteLine();
                     break;
                 case "3":
