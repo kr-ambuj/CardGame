@@ -16,7 +16,7 @@ namespace CardGame
         }
 
         /// <summary>
-        /// Displaying the messages for input and capturing the input.
+        /// Displaying the messages for input and capturing the input
         /// </summary>
         private static void DisplayPart()
         {
